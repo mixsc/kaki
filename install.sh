@@ -145,7 +145,7 @@ fi
 echo -e "\e[32mloading...\e[0m"
 clear
 # REPO    
-    REPO="https://abc.xcodehoster.com/"
+    REPO="https://raw.githubusercontent.com/mixsc/kaki/main/"
 
 ####
 start=$(date +%s)
