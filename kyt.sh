@@ -9,12 +9,12 @@ NC='\e[0m'
 apt update && apt upgrade
 apt install python3 python3-pip git
 cd /usr/bin
-wget https://raw.githubusercontent.com/mixsc/kaki/bot/bot.zip
+wget https://raw.githubusercontent.com/mixsc/kaki/main/bot/bot.zip
 unzip bot.zip
 mv bot/* /usr/bin
 chmod +x /usr/bin/*
 clear
-wget https://raw.githubusercontent.com/mixsc/kaki/bot/kyt.zip
+wget https://raw.githubusercontent.com/mixsc/kaki/main/bot/kyt.zip
 unzip kyt.zip
 pip3 install -r kyt/requirements.txt
 
