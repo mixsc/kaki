@@ -158,7 +158,7 @@ KIRI="\033[1;32m>\033[1;33m>\033[1;31m>\033[1;31m$NC"
 r="\033[1;31m"  #REDTERANG
 a=" ${CYAN}ACCOUNT PREMIUM" 
 echo -e " "
-figlet  WhiteVPN  | lolcat
+#figlet  WhiteVPN  | lolcat
 echo -e " ${z}╭══════════════════════════════════════════════════════════╮${NC}"
 echo -e " ${z}│$NC\033[41m         Welcome To Script Premium White Store            $NC${z}│$NC"
 echo -e " ${z}╰══════════════════════════════════════════════════════════╯${NC}"
