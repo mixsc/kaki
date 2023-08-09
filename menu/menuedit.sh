@@ -16,8 +16,8 @@ purple="\033[1;95m"
 YELL='\033[0;33m'
 #INTALLER-UDP
 UDPX="https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1S3IE25v_fyUfCLslnujFBSBMNunDHDk2' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1S3IE25v_fyUfCLslnujFBSBMNunDHDk2"
-ISP=$(cat /etc/xray/isp)
-CITY=$(cat /etc/xray/city)
+ISP=$(curl -s ipinfo.io/org | cut -d " " -f 2-10)
+CITY=$(curl -s ipinfo.io/city)
 IPVPS=$(curl -s ipv4.icanhazip.com)
 domain=$(cat /etc/xray/domain)
 RAM=$(free -m | awk 'NR==2 {print $2}')
@@ -165,6 +165,7 @@ echo -e " ${z}│$NC\033[41m         Welcome To Script Premium White Store      
 echo -e " ${z}╰══════════════════════════════════════════════════════════╯${NC}"
 echo -e " ${z}╭──────────────────────────────────────────────────────────╮${NC}"
 echo -e " ${z}│$NC$r ⇲ $NC$y System OS ${NC}     $Blue=$NC $MODEL${NC}"
+echo -e " ${z}│$NC$r ⇲ $NC$y Isp        ${NC}    $Blue=$NC $ISP$NC"
 echo -e " ${z}│$NC$r ⇲ $NC$y Server RAM ${NC}    $Blue=$NC $RAM MB $NC"
 echo -e " ${z}│$NC$r ⇲ $NC$y Uptime Server ${NC} $Blue=$NC $SERONLINE${NC}"
 echo -e " ${z}│$NC$r ⇲ $NC$y Date ${NC}          $Blue=$NC $DATEVPS${NC}"
@@ -180,10 +181,10 @@ echo -e "           VLESS/WS/GRPC${NC}  $y=$NC $vla$NC" "$a"
 echo -e "           TROJAN/WS/GRPC${NC} $y=$NC $trb${NC}" "$a"
 echo -e "           SHADOW/WS/GRPC${NC} $y=$NC $ssa${NC} $a"
 echo -e "       ───────────────────────────────────────────────${NC}" | lolcat 
-echo -e "               ${KIRI} ${purple}JANGAN LUPA BERBAGI YA${NC} ${KANAN}"
+echo -e "               ${KIRI} ${purple}JANGAN LUPA MAKAN YA${NC} ${KANAN}"
 echo -e " ${z}╭──────────────────────────────────────────────────────────╮${NC}"
-echo -e " ${BIPurple}    SSH ${NC}: $ressh"" ${BIPurple} NGINX ${NC}: $resngx"" ${BIPurple}  XRAY ${NC}: $resv2r"" ${BIPurple} TROJAN ${NC}: $resv2r"
-echo -e " ${BIPurple}            DROPBEAR ${NC}: $resdbr" "${BIPurple} SSH-WS ${NC}: $ressshws"
+echo -e " ${green}    SSH ${NC}: $ressh"" ${green} NGINX ${NC}: $resngx"" ${green}  XRAY ${NC}: $resv2r"" ${green} TROJAN ${NC}: $resv2r"
+echo -e " ${green}            DROPBEAR ${NC}: $resdbr" "${green} SSH-WS ${NC}: $ressshws"
 echo -e " ${z}╰──────────────────────────────────────────────────────────╯${NC}"
 echo -e " ${z}╭──────────────────────────────────────────────────────────╮${NC}"
 echo -e " ${z}$NC [${r}01${NC}]$purple SSH/UDP MENU$NC"
