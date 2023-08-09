@@ -185,16 +185,18 @@ echo -e " ${BIPurple}    SSH ${NC}: $ressh"" ${BIPurple} NGINX ${NC}: $resngx"" 
 echo -e " ${BIPurple}            DROPBEAR ${NC}: $resdbr" "${BIPurple} SSH-WS ${NC}: $ressshws"
 echo -e " ${z}╰──────────────────────────────────────────────────────────╯${NC}"
 echo -e " ${z}╭──────────────────────────────────────────────────────────╮${NC}"
-echo -e " ${z}│$NC [${r}01${NC}]$purple SSH MENU$NC     ${z}│$NC [${r}08${NC}]$purple DELL ALL EXP$NC ${z}│$NC [${r}15${NC}]$purple BCKP/RSTR   $NC${z}│$NC"
-echo -e " ${z}│$NC [${r}02${NC}]$purple VMESS MENU$NC   ${z}│$NC [${r}09${NC}]$purple AUTOREBOOT$NC  ${z} │$NC [${r}16${NC}]$purple REBOOT      $NC${z}│$NC"    
-echo -e " ${z}│$NC [${r}03${NC}]$purple VLESS MENU$NC   ${z}│$NC [${r}10${NC}]$purple INFO PORT$NC   ${z} │$NC [${r}17${NC}]$purple RESTART     $NC${z}│$NC"   
-echo -e " ${z}│$NC [${r}04${NC}]$purple TROJAN MENU$NC  ${z}│$NC [${r}11${NC}]$purple SPEEDTEST$NC   ${z} │$NC [${r}18${NC}]$purple DOMAIN      $NC${z}│$NC" 
-echo -e " ${z}│$NC [${r}05${NC}]$purple SHADOW MENU$NC  ${z}│$NC [${r}12${NC}]$purple RUNNING$NC     ${z} │$NC [${r}19${NC}]$purple CERT SSL    $NC${z}│$NC"
-echo -e " ${z}│$NC [${r}06${NC}]$purple TRIAL MENU$NC   ${z}│$NC [${r}13${NC}]$purple CLEAR LOG$NC   ${z} │$NC [${r}20${NC}]$purple INS. UDP    $NC${z}│$NC"
-echo -e " ${z}│$NC [${r}07${NC}]$purple VPS INFO$NC     ${z}│$NC [${r}14${NC}]$purple CREATE SLOW$NC ${z} │$NC [${r}21${NC}]$purple CLEAR CACHE $NC${z}│$NC"
-echo -e " ${z}│$NC [${r}22${NC}]$purple BOT NOTIF$NC    ${z}|$NC [${r}23${NC}]$purple UPDATE SCRIPT$NC${z}|$NC [${r}24${NC}]$purple BOT PANEL   $NC${z}│$NC"
-echo -e " ${z}│                                                          $NC${z}│$NC"
-echo -e " ${z}│$NC [${r}00${NC}]$purple BACK TO EXIT MENU$NC ${KANAN} \E[0m\033[0;34m                              $NC${z}│$NC"
+echo -e " ${z}│$NC [${r}01${NC}]$purple SSH/UDP MENU$NC"
+echo -e " ${z}│$NC [${r}02${NC}]$purple VMESS MENU$NC"    
+echo -e " ${z}│$NC [${r}03${NC}]$purple VLESS MENU$NC"   
+echo -e " ${z}│$NC [${r}04${NC}]$purple TROJAN MENU$NC" 
+echo -e " ${z}│$NC [${r}05${NC}]$purple SHADOW MENU$NC"
+echo -e " ${z}│$NC [${r}06${NC}]$purple BACKUP/RESTORE$NC"
+echo -e " ${z}│$NC [${r}07${NC}]$purple SETTINGS$NC"
+echo -e " ${z}│$NC [${r}08${NC}]$purple INFO SCRIPT$NC"
+echo -e " ${z}│$NC [${r}09${NC}]$purple INFO SERVER$NC"
+echo -e " ${z}│$NC [${r}10${NC}]$purple INSTAL UDP$NC"
+echo -e " "
+echo -e " ${z}│$NC [${r}x${NC}]$purple EXIT$NC ${KANAN} \E[0m\033[0;34m                              $NC${z}│$NC"
 echo -e " ${z}╰──────────────────────────────────────────────────────────╯${NC}"
 echo -e " ${z}╭──────────────────────────────────────────────────────────╮${NC}"
 echo -e " ${z}│$NC$y Version$NC       ${Blue}=$NC V3.0"
@@ -206,161 +208,17 @@ echo
 read -p " Select menu : " opt
 echo -e ""
 case $opt in
-1 | 01)
-clear
-m-sshws
-;;
-2 | 02)
-clear
-m-vmess
-;;
-3 | 03)
-clear
-m-vless
-;;
-4 | 04)
-clear
-m-trojan
-;;
-5 | 05)
-clear
-m-ssws
-;;
-6 | 06)
-clear
-m-trial
-;;
-7 | 07)
-clear
-gotop
-echo ""
-echo -e " ${GREEN} Back to menu in 1 sec ${NC}"
-sleep 1
-menu
-;;
-8 | 08)
-clear
-xp
-echo ""
-echo -e " ${GREEN} Back to menu in 1 sec ${NC}"
-sleep 1
-menu
-;;
-9 | 09)
-clear
-autoreboot
-;;
-10)
-clear
-prot
-echo ""
-read -n 1 -s -r -p "Press any key to back on menu"
-menu
-;;
-11)
-clear
-speedtest
-echo ""
-read -n 1 -s -r -p "Press any key to back on menu"
-menu
-;;
-12)
-clear
-run
-;;
-13)
-clear
-clearlog
-;;
-14)
-clear
-sd
-;;
-15)
-clear
-menu-backup
-;;
-16)
-clear
-reboot
-;;
-17)
-clear
-restart
-;;
-18)
-clear
-addhost
-;;
-19)
-clear
-fixcert
-;;
-20)
-clear
-echo -e "${green}ANDA YAKIN UNTUK MEMASANG SCRIPT INI ? $NC"
-echo -e "${green}MINIMAL RAM 2 GB BIAR DISK TIDAK FULL $NC"
-echo -e "${green}OS SUPPORT UBUNTU 20.04 ONLY $NC"
-echo -e ""
-read -p "SUDAH LAPOR KE ADMIN ? [Y/N]:" arg
-if [[ $arg == 'Y' ]]; then
-  echo -e "${Blue}Tindakan Diteruskan! $NC"
-  echo -e "${green}START. . . $NC"
-elif [[ $arg == 'y' ]]; then
-  echo -e "${Blue}Tindakan Diteruskan! $NC"
-  clear
-  echo -e "${Blue}START . . .$NC"
-elif [[ $arg == 'N' ]]; then
-  echo -e "${RED}Tindakan Dihentikan! $NC"
-  sleep 1
-  clear
-  menu
-  exit 0
-elif [[ $arg == 'n' ]]; then
-  echo -e "${RED}Tindakan Dihentikan! $NC"
-  sleep 1
-  clear
-  rm -f /root/update.sh
-  exit 0
-else
-  echo -e "${RED}Argumen Tidak Diketahui! $NC"
-  sleep 1
-  clear
-  rm -f /root/update.sh
-  exit 0
-fi
-##########
-clear
-wget --load-cookies /tmp/cookies.txt ${UDPX} -O install-udp && rm -rf /tmp/cookies.txt && chmod +x install-udp && ./install-udp
-;;
-21)
-clear
-clearcache
-;;
-22)
-clear
-bot
-;;
-23)
-clear
-echo -e "${green}ANDA YAKIN UNTUK UPDATE SCRIPT INI ? $NC"
-echo -e "${green}MINIMAL RAM 2 GB BIAR DISK TIDAK FULL $NC"
-echo -e "${green}OS SUPPORT UBUNTU 20.04 ONLY $NC"
-wget https://raw.githubusercontent.com/mixsc/kaki/main/update.sh && chmod +x update.sh && ./update.sh
-;;
-24)
-clear
-add-bot-panel
-;;
-0 | 00)
-figlet KYT PROJECT
-exit
-;;
-x)
-menu
-;;
-*)
-echo -e ""
-menu
-;;
+1) clear ; menu-ssh ;;
+2) clear ; menu-vmess ;;
+3) clear ; menu-vless ;;
+4) clear ; menu-trojan ;;
+5) clear ; menu-ss ;;
+6) clear ; menu-backup ;;
+7) clear ; menu-set ;;
+8) clear ; info ;;
+9) clear ; infoserv ;;
+10) clear ; clear ; wget --load-cookies /tmp/cookies.txt ${UDPX} -O install-udp && rm -rf /tmp/cookies.txt && chmod +x install-udp && ./install-udp ;;
+0) clear ; menu ;;
+x) exit ;;
+*) echo -e "" ; echo "Press any key to back exit" ; sleep 1 ; exit ;;
 esac
