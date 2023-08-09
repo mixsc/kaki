@@ -74,6 +74,11 @@ clear
 # OS Uptime
 uptime="$(uptime -p | cut -d " " -f 2-10)"
 
+# data kuota
+ttoday="$(vnstat -i eth0 | grep "today" | awk '{print $8" "substr ($9, 1, 1)}')" 
+tyest="$(vnstat -i eth0 | grep "yesterday" | awk '{print $8" "substr ($9, 1, 1)}')"
+tmon="$(vnstat -m | grep `date +%G-%m` | awk '{print $8" "substr ($9, 1 ,3)}' | head -1)"
+
 # Getting CPU Information | Geo Project
 cpu_usage1="$(ps aux | awk 'BEGIN {sum=0} {sum+=$3}; END {print sum}')"
 cpu_usage="$((${cpu_usage1/\.*} / ${coREDiilik:-1}))"
@@ -193,6 +198,9 @@ echo -e " ${z}$NC [${r}10${NC}]$purple INSTAL UDP$NC"
 echo -e " "
 echo -e " ${z}$NC [${r}xx${NC}]$purple EXIT$NC ${KANAN}$NC"
 echo -e " ${z}╰──────────────────────────────────────────────────────────╯${NC}"
+echo -e "${BIBlue} ┌─────────────────────────────────────────────────────┐${NC}" 
+echo -e "${BIBlue} │  ${BIGreen}     HARI ini${NC}: ${red}$ttoday$NC ${BIGreen}KEMARIN${NC}: ${red}$tyest$NC ${BIGreen}BULAN${NC}: ${red}$tmon$NC $NC" 
+echo -e "${BIBlue} └─────────────────────────────────────────────────────┘${NC}"
 echo -e " ${z}╭──────────────────────────────────────────────────────────╮${NC}"
 echo -e " ${z}│$NC$y Version$NC       ${Blue}=$NC V3.0"
 echo -e " ${z}│$NC$y User$NC          ${Blue}=$NC $username"
