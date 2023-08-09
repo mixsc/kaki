@@ -2,6 +2,7 @@
 # COLOR VALIDATION
 clear
 y='\033[1;33m' #yellow
+BIPurple='\033[1;95m'     # Purple
 BGX="\033[42m"
 CYAN="\033[96m"
 z="\033[96m"
