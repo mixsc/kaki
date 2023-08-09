@@ -92,55 +92,50 @@ tram=$( free -m | awk 'NR==2 {print $2}' )
 uram=$( free -m | awk 'NR==2 {print $3}' )
 fram=$( free -m | awk 'NR==2 {print $4}' )
 clear
-ssh_service=$(/etc/init.d/ssh status | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
-dropbear_service=$(/etc/init.d/dropbear status | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
-haproxy_service=$(systemctl status haproxy | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
-xray_service=$(systemctl status xray | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
-nginx_service=$(systemctl status nginx | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
-#Status | Geo Project
-clear
-# STATUS SERVICE  SSH 
-if [[ $ssh_service == "running" ]]; then 
-   status_ssh="${green}ON✓${NC}"
+## status
+cek=$(service ssh status | grep active | cut -d ' ' -f5)
+if [ "$cek" = "active" ]; then
+stat=-f5
 else
-   status_ssh="${RED}🔴${NC} "
+stat=-f7
+fi
+ssh=$(service ssh status | grep active | cut -d ' ' $stat)
+if [ "$ssh" = "active" ]; then
+ressh="${green}ON✅${NC}"
+else
+ressh="${red}🔴${NC}"
+fi
+sshstunel=$(service stunnel5 status | grep active | cut -d ' ' $stat)
+if [ "$sshstunel" = "active" ]; then
+resst="${green}ON✅${NC}"
+else
+resst="${red}🔴${NC}"
+fi
+sshws=$(service ws-stunnel status | grep active | cut -d ' ' $stat)
+if [ "$sshws" = "active" ]; then
+ressshws="${green}ON✅${NC}"
+else
+ressshws="${red}🔴${NC}"
+fi
+ngx=$(service nginx status | grep active | cut -d ' ' $stat)
+if [ "$ngx" = "active" ]; then
+resngx="${green}ON✅${NC}"
+else
+resngx="${red}🔴${NC}"
+fi
+dbr=$(service dropbear status | grep active | cut -d ' ' $stat)
+if [ "$dbr" = "active" ]; then
+resdbr="${green}ON✅${NC}"
+else
+resdbr="${red}🔴${NC}"
+fi
+v2r=$(service xray status | grep active | cut -d ' ' $stat)
+if [ "$v2r" = "active" ]; then
+resv2r="${green}ON✅${NC}"
+else
+resv2r="${red}🔴${NC}"
 fi
 
-# // SSH Websocket Proxy
-ssh_ws=$( systemctl status ws | grep Active | awk '{print $3}' | sed 's/(//g' | sed 's/)//g' )
-if [[ $ssh_ws == "running" ]]; then
-    status_ws_epro="${green}ON✓${NC}"
-else
-    status_ws_epro="${RED}🔴${NC} "
-fi
-
-# STATUS SERVICE HAPROXY
-if [[ $haproxy_service == "running" ]]; then 
-   status_haproxy="${green}ON✓${NC}"
-else
-   status_haproxy="${RED}🔴${NC} "
-fi
-
-# STATUS SERVICE XRAY
-if [[ $xray_service == "running" ]]; then 
-   status_xray="${green}ON✓${NC}"
-else
-   status_xray="${RED}🔴${NC} "
-fi
-
-# STATUS SERVICE NGINX
-if [[ $nginx_service == "running" ]]; then 
-   status_nginx="${green}ON✓${NC}"
-else
-   status_nginx="${RED}🔴${NC} "
-fi
-
-# STATUS SERVICE Dropbear
-if [[ $dropbear_service == "running" ]]; then 
-   status_dropbear="${green}ON✓${NC}"
-else
-   status_dropbear="${RED}🔴${NC} "
-fi
 #####INFOAKUN
 vlx=$(grep -c -E "^#& " "/etc/xray/config.json")
 let vla=$vlx/2
