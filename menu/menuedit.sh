@@ -202,7 +202,7 @@ echo -e " ${z}╭─────────────────────
 echo -e "${z} │  ${green}  HARI ini${NC}: ${y}$ttoday$NC ${green}KEMARIN${NC}: ${y}$tyest$NC ${green}BULAN${NC}: ${y}$tmon$NC $NC" 
 echo -e " ${z}╰──────────────────────────────────────────────────────────╯${NC}"
 echo -e " ${z}╭──────────────────────────────────────────────────────────╮${NC}"
-echo -e " ${z}│$NC$y Version$NC       ${Blue}=$NC V3.0"
+echo -e " ${z}│$NC$y Version$NC       ${Blue}=$NC $(cat /opt/.ver) Last Update"
 echo -e " ${z}│$NC$y User$NC          ${Blue}=$NC $username"
 echo -e " ${z}│$NC$y Script Status$NC ${Blue}=$NC $sts "
 echo -e " ${z}│$NC$y Expiry script$NC $Blue=$green $exp$NC ($r $certifacate ${NC}Days )"
